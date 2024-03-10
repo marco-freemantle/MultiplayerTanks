@@ -9,6 +9,7 @@ public class RespawningCoin : Coin
 
     private Vector3 previousPosition;
 
+    // Checks if the coin's position has changed and shows the coin if it has.
     private void Update()
     {
         if(previousPosition != transform.position)
@@ -20,7 +21,8 @@ public class RespawningCoin : Coin
 
     public override int Collect()
     {
-        if(!IsServer)
+        // If the game is not running on the server, hide the coin and return 0.
+        if (!IsServer)
         {
             Show(false);
             return 0;
