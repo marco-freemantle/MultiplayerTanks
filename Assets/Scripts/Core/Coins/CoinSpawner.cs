@@ -61,14 +61,11 @@ public class CoinSpawner : NetworkBehaviour
     // Gets a random spawn point for the coin.
     private Vector2 GetSpawnPoint()
     {
-        float x = 0;
-        float y = 0;
-
         while (true)
         {
             // Generate random coordinates within the specified ranges.
-            x = Random.Range(xSpawnRange.x, xSpawnRange.y);
-            y = Random.Range(ySpawnRange.x, ySpawnRange.y);
+            float x = Random.Range(xSpawnRange.x, xSpawnRange.y);
+            float y = Random.Range(ySpawnRange.x, ySpawnRange.y);
             Vector2 spawnPoint = new Vector2(x, y);
 
             // Check if there are any colliders in the spawn area.
