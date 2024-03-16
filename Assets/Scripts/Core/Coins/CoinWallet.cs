@@ -6,6 +6,7 @@ using UnityEngine;
 public class CoinWallet : NetworkBehaviour
 {
     public NetworkVariable<int> TotalCoins = new NetworkVariable<int>(0);
+    [SerializeField] private AudioSource coinSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +14,12 @@ public class CoinWallet : NetworkBehaviour
 
         int coinValue = coin.Collect();
 
-        if(!IsServer) return;
+        if (IsLocalPlayer)
+        {
+            coinSound.Play();
+        }
+
+        if (!IsServer) return;
 
         TotalCoins.Value += coinValue;
     }

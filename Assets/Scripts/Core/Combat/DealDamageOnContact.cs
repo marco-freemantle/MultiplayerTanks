@@ -16,18 +16,15 @@ public class DealDamageOnContact : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("Hit");
         if(other.attachedRigidbody == null) return;
-        print("Has rigid body");
 
         if(other.attachedRigidbody.TryGetComponent(out NetworkObject netObj))
         {
             if (netObj.OwnerClientId == ownerClientId) return;
         }
-        print("Not owner");
+
         if(other.attachedRigidbody.TryGetComponent(out Health health))
         {
-            print("Has health");
             health.TakeDamage(damage);
         }
     }

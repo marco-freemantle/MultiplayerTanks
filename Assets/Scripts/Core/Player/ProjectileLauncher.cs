@@ -14,6 +14,7 @@ public class ProjectileLauncher : NetworkBehaviour
     [SerializeField] private InputReader inputReader;
     [SerializeField] private GameObject muzzleFlash;
     [SerializeField] private Collider2D playerCollider;
+    [SerializeField] private AudioSource shootingSound;
 
     [Header("Settings")]
     [SerializeField] private float projectileSpeed = 10f;
@@ -112,5 +113,7 @@ public class ProjectileLauncher : NetworkBehaviour
         {
             rb.velocity = projectileSpeed * rb.transform.up;
         }
+
+        shootingSound.Play();
     }
 }
