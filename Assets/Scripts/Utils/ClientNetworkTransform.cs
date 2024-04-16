@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode.Components;
 using UnityEngine;
 
+// Class to manage the transformation of a networked object on the client side
 public class ClientNetworkTransform : NetworkTransform
 {
     // This is a client-only object, so we don't need to worry about server authority
